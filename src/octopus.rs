@@ -1,9 +1,9 @@
 //! Contains rust interfaces for using the [Octopus Energy REST API](https://developer.octopus.energy/rest/)
 use http::StatusCode;
-use leptos::{expect_context, server, ServerFnError};
+use leptos::{server, ServerFnError};
 use serde::{Deserialize, Serialize};
 use std::env;
-use time::{format_description::well_known::{Iso8601, Rfc3339}, OffsetDateTime};
+use time::OffsetDateTime;
 
 const API_KEY_ENV_VAR: &str = "OCTOPUS_API_KEY";
 
@@ -17,8 +17,6 @@ pub async fn get_consumption(
     mpan: String,
     serial: String,
 ) -> Result<Result<f32, GetConsumptionError>, ServerFnError> {
-    use leptos_axum::ResponseOptions;
-
     let response = reqwest::Client::new()
         .get(
             API_BASE_URI.to_owned()
@@ -81,4 +79,3 @@ struct ConsumptionInterval {
     #[serde(with = "time::serde::rfc3339")]
     interval_end: OffsetDateTime,
 }
-

@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    font-size: 48px;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    border: none;
+    border-radius: 12px;
+}
+
+main {
+    border: 2px solid black;
+    box-shadow: 0 0 50px 10px #888888;
+    padding: 16px;
+}
+.get-consumption-form {
+    display: flex;
+    flex-direction: column;
+}
+.get-consumption-form > * {
+    margin: 5% 0 0 0;
+}
